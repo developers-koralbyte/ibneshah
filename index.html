@@ -3,822 +3,790 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syed Ibn-e-Ali | Global CFO & SEA Scaling Advisor</title>
+<title>Syed Ibn-e-Ali | Fractional CFO & Southeast Asia Advisory</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:       #0D0D0D;
-    --paper:     #F7F4EE;
-    --gold:      #C49A3C;
-    --gold-light:#E8C97A;
-    --slate:     #2B3240;
-    --mist:      #E8E4DC;
-    --mid:       #6B6560;
-    --white:     #FFFFFF;
+    --black:    #0A0A0B;
+    --ink:      #14141A;
+    --cream:    #F7F5F0;
+    --paper:    #FCFBF8;
+    --rust:     #C2542C;
+    --rust-d:   #A04323;
+    --navy:     #1B2A4A;
+    --line:     #E2DED4;
+    --mid:      #6E6A60;
+    --white:    #FFFFFF;
 
-    --serif: 'Playfair Display', Georgia, serif;
-    --sans:  'DM Sans', system-ui, sans-serif;
-    --mono:  'DM Mono', monospace;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans:  'Inter', system-ui, sans-serif;
+    --mono:  'JetBrains Mono', monospace;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: var(--sans);
     background: var(--paper);
     color: var(--ink);
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── NAV ─────────────────────────────────── */
+  /* ───────── NAV ───────── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.25rem 4vw;
-    background: rgba(247,244,238,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--mist);
+    padding: 1.4rem 4vw;
+    background: rgba(252,251,248,0.85);
+    backdrop-filter: blur(14px) saturate(1.2);
+    border-bottom: 1px solid var(--line);
   }
   .nav-logo {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    text-transform: uppercase;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
   }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-logo span { color: var(--rust); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
   .nav-links a {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
     color: var(--ink);
     text-decoration: none;
     transition: color 0.2s;
+    position: relative;
   }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--rust); }
   .nav-cta {
     font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-weight: 600;
     color: var(--white);
-    background: var(--slate);
-    padding: 0.55rem 1.4rem;
-    border-radius: 2px;
+    background: var(--ink);
+    padding: 0.65rem 1.5rem;
+    border-radius: 100px;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.25s, transform 0.2s;
   }
-  .nav-cta:hover { background: var(--gold); }
+  .nav-cta:hover { background: var(--rust); transform: translateY(-1px); }
 
-  /* ─── HERO ────────────────────────────────── */
+  /* ───────── HERO ───────── */
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-  .hero-left {
-    padding: 8vw 5vw 8vw 8vw;
-    display: flex; flex-direction: column; justify-content: center;
+    grid-template-columns: 1.15fr 0.85fr;
+    padding-top: 76px;
+    background: var(--paper);
     position: relative;
   }
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.8rem;
-    display: flex; align-items: center; gap: 1rem;
+  .hero-left {
+    padding: 6vw 4vw 6vw 6vw;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; z-index: 2;
   }
-  .hero-eyebrow::before {
-    content: '';
-    display: block; width: 40px; height: 1px;
-    background: var(--gold);
+  .hero-kicker {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    width: fit-content;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(194,84,44,0.3);
+    border-radius: 100px;
+    background: rgba(194,84,44,0.05);
+  }
+  .hero-kicker::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--rust);
   }
   .hero-headline {
     font-family: var(--serif);
-    font-size: clamp(2.8rem, 5vw, 4.8rem);
-    font-weight: 900;
-    line-height: 1.05;
+    font-size: clamp(2.6rem, 4.6vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
     color: var(--ink);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.6rem;
   }
-  .hero-headline em {
-    font-style: normal;
-    color: var(--gold);
-  }
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--mid);
-    max-width: 480px;
-    line-height: 1.75;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-block;
-    background: var(--slate);
-    color: var(--white);
-    padding: 0.9rem 2.2rem;
-    font-size: 0.82rem;
+  .hero-headline .accent {
+    font-style: italic;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.15s;
+    color: var(--rust);
   }
-  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+  .hero-tagline {
+    font-size: 1.08rem;
+    color: var(--mid);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.6rem;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--ink);
+    color: var(--white);
+    padding: 1rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-2px); }
   .btn-secondary {
-    display: inline-block;
+    display: inline-flex; align-items: center; gap: 0.5rem;
     border: 1.5px solid var(--ink);
     color: var(--ink);
-    padding: 0.9rem 2.2rem;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 2px;
-    transition: border-color 0.2s, color 0.2s;
+    border-radius: 100px;
+    transition: all 0.25s;
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-secondary:hover { border-color: var(--rust); color: var(--rust); background: rgba(194,84,44,0.04); }
+
   .hero-stats {
-    margin-top: 3.5rem;
-    display: flex; gap: 2.5rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--mist);
+    display: flex; gap: 2.8rem;
+    padding-top: 2.2rem;
+    border-top: 1px solid var(--line);
   }
   .stat-num {
     font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.9rem;
+    font-weight: 600;
     color: var(--ink);
     line-height: 1;
   }
+  .stat-num span { color: var(--rust); }
   .stat-label {
     font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--mid);
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
   }
 
+  /* ───────── HERO RIGHT / PHOTO ───────── */
   .hero-right {
-    background: var(--slate);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
+    background: var(--ink);
     overflow: hidden;
-    padding: 4rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
   .hero-right::before {
     content: '';
     position: absolute; inset: 0;
-    background: 
-      radial-gradient(circle at 70% 30%, rgba(196,154,60,0.18) 0%, transparent 55%),
-      radial-gradient(circle at 20% 80%, rgba(196,154,60,0.1) 0%, transparent 45%);
+    background:
+      radial-gradient(ellipse at 30% 0%, rgba(194,84,44,0.25) 0%, transparent 60%),
+      linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.55) 100%);
+    z-index: 2;
+    pointer-events: none;
   }
-  .hero-card {
-    position: relative; z-index: 1;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(196,154,60,0.25);
-    border-radius: 4px;
-    padding: 2.5rem;
-    max-width: 360px;
-    width: 100%;
+  .hero-photo {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(0.15) contrast(1.05);
+    display: block;
   }
-  .hero-card-name {
+  .photo-card {
+    position: absolute;
+    bottom: 2.5rem; left: 2.5rem; right: 2.5rem;
+    z-index: 3;
+    background: rgba(252,251,248,0.96);
+    backdrop-filter: blur(8px);
+    border-radius: 6px;
+    padding: 1.4rem 1.6rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .photo-card-name {
     font-family: var(--serif);
-    font-size: 1.6rem;
-    color: var(--white);
-    margin-bottom: 0.3rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
   }
-  .hero-card-title {
+  .photo-card-title {
     font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-light);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--rust);
     text-transform: uppercase;
-    margin-bottom: 2rem;
   }
-  .hero-tags {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-  .tag {
+  .photo-badge {
+    position: absolute;
+    top: 2rem; right: 2rem; z-index: 3;
+    background: var(--rust);
+    color: var(--white);
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid rgba(196,154,60,0.35);
-    color: var(--gold-light);
-    border-radius: 2px;
+    padding: 0.5rem 0.9rem;
+    border-radius: 100px;
+    box-shadow: 0 8px 24px rgba(194,84,44,0.4);
   }
-  .hero-geo {
-    display: flex; flex-wrap: wrap; gap: 0.4rem;
-  }
-  .geo-dot {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.45);
-  }
-  .geo-dot span { color: rgba(255,255,255,0.7); }
-  .raised-badge {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(196,154,60,0.12);
-    border-left: 2px solid var(--gold);
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.5;
-  }
-  .raised-badge strong { color: var(--gold-light); }
 
-  /* ─── ABOUT ───────────────────────────────── */
-  .section { padding: 7rem 8vw; }
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 1rem;
+  /* ───────── MARQUEE ───────── */
+  .marquee-section {
+    background: var(--ink);
+    padding: 1.6rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .section-label::after {
-    content: '';
-    flex: 1; max-width: 60px; height: 1px;
-    background: var(--gold);
+  .marquee-track {
+    display: flex;
+    gap: 3.5rem;
+    width: max-content;
+    animation: scroll 32s linear infinite;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-item {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 3.5rem;
+  }
+  .marquee-item strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .marquee-dot { color: var(--rust); }
+
+  /* ───────── SECTION SHELL ───────── */
+  .section { padding: 7.5rem 6vw; }
+  .section-kicker {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.2rem;
   }
   .section-title {
     font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, 3.4vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+  }
+  .section-title .accent { font-style: italic; color: var(--rust); font-weight: 500; }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 560px;
+    line-height: 1.75;
   }
 
+  /* ───────── ABOUT ───────── */
+  .about-section { background: var(--paper); }
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
     gap: 5rem;
-    align-items: center;
+    margin-top: 3.5rem;
+    align-items: start;
   }
   .about-text p {
     font-size: 1rem;
     color: var(--mid);
-    line-height: 1.8;
-    margin-bottom: 1.2rem;
+    line-height: 1.85;
+    margin-bottom: 1.3rem;
   }
-  .about-text p strong { color: var(--ink); font-weight: 500; }
-  .credentials {
-    display: flex; flex-direction: column; gap: 1rem;
+  .about-text strong { color: var(--ink); font-weight: 600; }
+  .cred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
-  .credential-item {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1.2rem;
+  .cred-card {
     background: var(--white);
-    border: 1px solid var(--mist);
-    border-radius: 3px;
-    transition: border-color 0.2s;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.4rem;
+    transition: border-color 0.25s, transform 0.25s;
   }
-  .credential-item:hover { border-color: var(--gold); }
-  .cred-icon {
-    width: 36px; height: 36px;
-    background: var(--slate);
-    border-radius: 3px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-size: 0.9rem;
+  .cred-card:hover { border-color: var(--rust); transform: translateY(-3px); }
+  .cred-mark {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--rust);
+    margin-bottom: 0.8rem;
+    display: block;
   }
-  .cred-body { flex: 1; }
-  .cred-title {
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.15rem;
-  }
-  .cred-sub {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: var(--mid);
-    letter-spacing: 0.05em;
-  }
+  .cred-title { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+  .cred-sub { font-family: var(--mono); font-size: 0.62rem; color: var(--mid); letter-spacing: 0.03em; line-height: 1.5; }
 
-  /* ─── SERVICES ────────────────────────────── */
-  .services-section {
-    background: var(--slate);
-    padding: 7rem 8vw;
-  }
-  .services-section .section-label { color: var(--gold-light); }
-  .services-section .section-label::after { background: var(--gold-light); }
-  .services-section .section-title { color: var(--white); }
+  /* ───────── SERVICES ───────── */
+  .services-section { background: var(--ink); color: var(--white); }
+  .services-section .section-kicker { color: var(--rust); }
+  .services-section .section-sub { color: rgba(255,255,255,0.5); }
+
   .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5px;
+    gap: 1.2rem;
     margin-top: 3.5rem;
-    background: rgba(196,154,60,0.15);
-    border: 1.5px solid rgba(196,154,60,0.15);
-    border-radius: 4px;
-    overflow: hidden;
   }
   .service-card {
-    background: var(--slate);
-    padding: 2.5rem;
-    transition: background 0.25s;
-    cursor: default;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 2.2rem;
+    transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
   }
-  .service-card:hover { background: #323B4E; }
+  .service-card:hover {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(194,84,44,0.4);
+    transform: translateY(-4px);
+  }
+  .service-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 1.4rem;
+  }
   .service-num {
     font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.1em;
   }
-  .service-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    display: block;
+  .service-flag {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rust);
+    background: rgba(194,84,44,0.12);
+    padding: 0.25rem 0.65rem;
+    border-radius: 100px;
   }
   .service-title {
     font-family: var(--serif);
-    font-size: 1.35rem;
-    color: var(--white);
-    margin-bottom: 0.8rem;
-    font-weight: 700;
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.01em;
   }
   .service-desc {
     font-size: 0.88rem;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.5);
     line-height: 1.75;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
   }
   .service-bullets { list-style: none; }
   .service-bullets li {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.45);
-    padding: 0.3rem 0;
-    padding-left: 1rem;
-    position: relative;
-  }
-  .service-bullets li::before {
-    content: '→';
-    position: absolute; left: 0;
-    color: var(--gold);
-    font-size: 0.7rem;
-  }
-
-  /* ─── BRANDS ──────────────────────────────── */
-  .brands-section { padding: 5rem 8vw; background: var(--white); }
-  .brands-section .section-title { font-size: 1.4rem; margin-bottom: 2.5rem; }
-  .brands-scroll {
-    display: flex; flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-  }
-  .brand-pill {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.5rem 1.1rem;
-    border: 1px solid var(--mist);
-    border-radius: 100px;
-    color: var(--mid);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .brand-pill:hover { border-color: var(--gold); color: var(--ink); }
-  .brand-pill.featured {
-    background: var(--slate);
-    color: var(--gold-light);
-    border-color: var(--slate);
-  }
-
-  /* ─── GEOGRAPHY ───────────────────────────── */
-  .geo-section { padding: 7rem 8vw; }
-  .geo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-    align-items: start;
-  }
-  .geo-intro {
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.8;
-  }
-  .markets-list {
-    display: flex; flex-direction: column; gap: 0.75rem;
-  }
-  .market-row {
-    display: flex; align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.2rem;
-    background: var(--white);
-    border: 1px solid var(--mist);
-    border-radius: 3px;
-  }
-  .market-flag { font-size: 1.2rem; }
-  .market-name {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--ink);
-    flex: 1;
-  }
-  .market-type {
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  /* ─── PROCESS ─────────────────────────────── */
-  .process-section {
-    background: var(--ink);
-    padding: 7rem 8vw;
-    position: relative;
-    overflow: hidden;
-  }
-  .process-section::before {
-    content: 'CFO';
-    position: absolute;
-    right: -2rem; top: 50%; transform: translateY(-50%);
-    font-family: var(--serif);
-    font-size: 20rem;
-    font-weight: 900;
-    color: rgba(255,255,255,0.02);
-    pointer-events: none;
-    line-height: 1;
-  }
-  .process-section .section-label { color: var(--gold-light); }
-  .process-section .section-label::after { background: var(--gold-light); }
-  .process-section .section-title { color: var(--white); }
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin-top: 3.5rem;
-    position: relative; z-index: 1;
-  }
-  .process-step { position: relative; }
-  .process-step::after {
-    content: '→';
-    position: absolute;
-    right: -1.2rem; top: 0.3rem;
-    color: rgba(196,154,60,0.4);
-    font-size: 1rem;
-  }
-  .process-step:last-child::after { display: none; }
-  .step-num {
-    font-family: var(--serif);
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(196,154,60,0.2);
-    line-height: 1;
-    margin-bottom: 0.8rem;
-  }
-  .step-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .step-desc {
     font-size: 0.8rem;
     color: rgba(255,255,255,0.4);
-    line-height: 1.65;
+    padding: 0.35rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .service-bullets li:first-child { border-top: none; }
+  .service-bullets li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--rust);
   }
 
-  /* ─── TESTIMONIAL AREA ────────────────────── */
-  .proof-section { padding: 7rem 8vw; }
+  /* ───────── PROCESS ───────── */
+  .process-section { background: var(--paper); }
+  .process-rail {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .process-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 2fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--line);
+    align-items: center;
+    transition: padding-left 0.3s;
+  }
+  .process-row:hover { padding-left: 0.8rem; }
+  .process-row:last-child { border-bottom: 1px solid var(--line); }
+  .process-step-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--line);
+    font-style: italic;
+  }
+  .process-step-title { font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+  .process-step-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.7; }
+
+  /* ───────── PROOF / TESTIMONIAL-LIKE ───────── */
+  .proof-section { background: var(--cream); }
   .proof-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1.4rem;
     margin-top: 3.5rem;
   }
   .proof-card {
-    padding: 2rem;
     background: var(--white);
-    border: 1px solid var(--mist);
-    border-radius: 3px;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    border-radius: 10px;
+    padding: 2rem;
+    border: 1px solid var(--line);
   }
-  .proof-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 4px 24px rgba(196,154,60,0.08);
-  }
-  .proof-quote {
+  .proof-mark {
     font-family: var(--serif);
-    font-size: 2rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.8rem;
+    font-size: 2.6rem;
+    font-style: italic;
+    color: var(--rust);
+    line-height: 0.6;
+    margin-bottom: 1.2rem;
+    display: block;
   }
   .proof-text {
-    font-size: 0.88rem;
-    color: var(--mid);
-    line-height: 1.75;
-    margin-bottom: 1.2rem;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.8;
+    margin-bottom: 1.4rem;
   }
   .proof-author {
     font-family: var(--mono);
     font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--mid);
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
   }
 
-  /* ─── CTA ─────────────────────────────────── */
-  .cta-section {
-    background: var(--gold);
-    padding: 6rem 8vw;
-    text-align: center;
+  /* ───────── MARKETS ───────── */
+  .markets-section { background: var(--paper); }
+  .markets-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 3.5rem;
   }
-  .cta-section .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--ink); }
+  .market-tile {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .market-tile:hover { border-color: var(--rust); transform: translateY(-3px); }
+  .market-flag { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+  .market-name { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; }
+  .market-type { font-family: var(--mono); font-size: 0.6rem; color: var(--mid); letter-spacing: 0.04em; }
+
+  /* ───────── CTA ───────── */
+  .cta-section {
+    background: var(--rust);
+    padding: 6.5rem 6vw;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.12) 0%, transparent 60%);
+  }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-section .section-kicker { color: rgba(255,255,255,0.75); }
+  .cta-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.6vw, 3.2rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .cta-title .accent { font-style: italic; }
   .cta-sub {
-    font-size: 1rem;
-    color: rgba(13,13,13,0.65);
-    max-width: 540px;
-    margin: 1rem auto 2.5rem;
-    line-height: 1.7;
+    font-size: 1.02rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 560px;
+    margin: 0 auto 2.6rem;
+    line-height: 1.75;
   }
   .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-  .btn-dark {
+  .btn-white {
     display: inline-block;
-    background: var(--ink);
+    background: var(--white);
+    color: var(--rust);
+    padding: 1rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: transform 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+  .btn-outline-white {
+    display: inline-block;
+    border: 1.5px solid rgba(255,255,255,0.7);
     color: var(--white);
-    padding: 1rem 2.5rem;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s;
+    border-radius: 100px;
+    transition: background 0.25s;
   }
-  .btn-dark:hover { background: var(--slate); }
-  .btn-outline-dark {
-    display: inline-block;
-    border: 1.5px solid var(--ink);
-    color: var(--ink);
-    padding: 1rem 2.5rem;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, color 0.2s;
+  .btn-outline-white:hover { background: rgba(255,255,255,0.12); }
+  .cta-contact {
+    margin-top: 1.8rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.75);
   }
-  .btn-outline-dark:hover { background: var(--ink); color: var(--white); }
 
-  /* ─── FOOTER ──────────────────────────────── */
+  /* ───────── FOOTER ───────── */
   footer {
-    background: var(--ink);
-    padding: 3rem 8vw;
+    background: var(--black);
+    padding: 3.2rem 6vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
   }
   .footer-name {
     font-family: var(--serif);
     font-size: 1.1rem;
+    font-weight: 600;
     color: var(--white);
   }
-  .footer-links {
-    display: flex; gap: 1.5rem; list-style: none;
-  }
+  .footer-name span { color: var(--rust); }
+  .footer-links { display: flex; gap: 1.8rem; list-style: none; flex-wrap: wrap; }
   .footer-links a {
     font-family: var(--mono);
     font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.4);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .footer-links a:hover { color: var(--gold); }
+  .footer-links a:hover { color: var(--rust); }
   .footer-copy {
     font-family: var(--mono);
     font-size: 0.62rem;
-    color: rgba(255,255,255,0.2);
-    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
   }
 
-  /* ─── RESPONSIVE ──────────────────────────── */
-  @media (max-width: 900px) {
+  /* ───────── RESPONSIVE ───────── */
+  @media (max-width: 980px) {
     .hero { grid-template-columns: 1fr; }
-    .hero-right { min-height: 420px; }
-    .about-grid, .geo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-right { min-height: 480px; order: -1; }
+    .hero-left { padding: 4rem 6vw; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .services-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
     .proof-grid { grid-template-columns: 1fr; }
+    .markets-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-row { grid-template-columns: 60px 1fr; }
+    .process-row > div:nth-child(3) { grid-column: 1 / -1; }
     .nav-links { display: none; }
-    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
   }
-  @media (max-width: 600px) {
-    .process-steps { grid-template-columns: 1fr; }
-    .process-step::after { display: none; }
+  @media (max-width: 560px) {
+    .markets-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 1.6rem; }
     .section { padding: 5rem 6vw; }
   }
 
-  /* ─── SCROLL ANIMATIONS ───────────────────── */
-  .fade-up {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-  .fade-up:nth-child(2) { transition-delay: 0.1s; }
-  .fade-up:nth-child(3) { transition-delay: 0.2s; }
-  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+  /* ───────── SCROLL REVEAL ───────── */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Syed Ibn-e-Ali</div>
+  <div class="nav-logo">Syed <span>Ibn-e-Ali</span></div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#markets">Markets</a></li>
     <li><a href="#process">Process</a></li>
   </ul>
-  <a href="mailto:ca.ibneali88@yahoo.com" class="nav-cta">Work With Me</a>
+  <a href="mailto:ca.ibneali88@yahoo.com" class="nav-cta">Start a Conversation</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Global CFO & SEA Advisor</div>
+    <div class="hero-kicker">Available for new engagements</div>
     <h1 class="hero-headline">
-      Scale into<br><em>Southeast Asia</em><br>with a CFO<br>who's done it.
+      The CFO behind<br>your <span class="accent">Southeast Asia</span><br>breakthrough.
     </h1>
-    <p class="hero-sub">
-      16 years. 4 continents. $29M+ raised. I embed as your Fractional CFO — building the financial infrastructure that lets ambitious startups and DTC brands expand across SEA with real control.
+    <p class="hero-tagline">
+      I build the financial backbone that lets ambitious founders expand into Southeast Asia with clarity, control, and capital discipline — without the overhead of a full-time hire.
     </p>
     <div class="hero-actions">
-      <a href="mailto:ca.ibneali88@yahoo.com" class="btn-primary">Book a Discovery Call</a>
-      <a href="#services" class="btn-secondary">See Services</a>
+      <a href="mailto:ca.ibneali88@yahoo.com" class="btn-primary">Book a Discovery Call →</a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">$29M+</div>
+        <div class="stat-num">$<span>29M+</span></div>
         <div class="stat-label">Capital Raised</div>
       </div>
       <div>
-        <div class="stat-num">16yrs</div>
-        <div class="stat-label">Experience</div>
+        <div class="stat-num"><span>16</span>yrs</div>
+        <div class="stat-label">Global Experience</div>
       </div>
       <div>
-        <div class="stat-num">7</div>
+        <div class="stat-num"><span>7</span></div>
         <div class="stat-label">SEA Markets</div>
       </div>
       <div>
-        <div class="stat-num">Big 4</div>
-        <div class="stat-label">Trained (KPMG)</div>
+        <div class="stat-num">Big <span>4</span></div>
+        <div class="stat-label">Trained, KPMG</div>
       </div>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-card">
-      <div class="hero-card-name">Syed Ibn-e-Ali</div>
-      <div class="hero-card-title">CA · CPA (UK) · IPA · Kuala Lumpur</div>
-      <div class="hero-tags">
-        <span class="tag">Fractional CFO</span>
-        <span class="tag">PE & VC</span>
-        <span class="tag">DTC Brands</span>
-        <span class="tag">SaaS</span>
-        <span class="tag">eCommerce</span>
-        <span class="tag">Creator Economy</span>
-      </div>
-      <div class="hero-geo">
-        <div class="geo-dot">🇲🇾 <span>Malaysia</span></div>
-        <div class="geo-dot">·</div>
-        <div class="geo-dot">🇸🇬 <span>Singapore</span></div>
-        <div class="geo-dot">·</div>
-        <div class="geo-dot">🇺🇸 <span>North America</span></div>
-        <div class="geo-dot">·</div>
-        <div class="geo-dot">🇫🇮 <span>Europe</span></div>
-      </div>
-      <div class="raised-badge">
-        <strong>Currently:</strong> Interim Group CFO — StyleDoubler<br>
-        7 entities across Malaysia, Singapore, Indonesia, Thailand, Vietnam & Philippines
-      </div>
+    <div class="photo-badge">Kuala Lumpur, MY</div>
+    <img src="assets/syed-photo.jpg" alt="Syed Ibn-e-Ali" class="hero-photo">
+    <div class="photo-card">
+      <div class="photo-card-name">Syed Ibn-e-Ali</div>
+      <div class="photo-card-title">CA · CPA (UK) · IPA Australia</div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS -->
-<section class="brands-section">
-  <div class="section-label">Trusted by</div>
-  <div class="brands-scroll">
-    <span class="brand-pill featured">Poo~Pourri</span>
-    <span class="brand-pill featured">GKHair</span>
-    <span class="brand-pill featured">StyleDoubler</span>
-    <span class="brand-pill featured">Solwave</span>
-    <span class="brand-pill featured">Galaxy Racer</span>
-    <span class="brand-pill">Streamline Media</span>
-    <span class="brand-pill">FAHM Technology</span>
-    <span class="brand-pill">Rocket Internet</span>
-    <span class="brand-pill">Netflix collab</span>
-    <span class="brand-pill">Tencent collab</span>
-    <span class="brand-pill">LaLiga collab</span>
-    <span class="brand-pill">Walt Disney collab</span>
-    <span class="brand-pill">KPMG</span>
-    <span class="brand-pill">MDEC Panel</span>
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><strong>Poo~Pourri</strong><span class="marquee-dot">●</span><strong>GKHair</strong><span class="marquee-dot">●</span><strong>StyleDoubler</strong><span class="marquee-dot">●</span><strong>Solwave</strong><span class="marquee-dot">●</span><strong>Galaxy Racer</strong><span class="marquee-dot">●</span><strong>Streamline Media</strong><span class="marquee-dot">●</span><strong>KPMG</strong><span class="marquee-dot">●</span><strong>MDEC</strong></div>
+    <div class="marquee-item"><strong>Poo~Pourri</strong><span class="marquee-dot">●</span><strong>GKHair</strong><span class="marquee-dot">●</span><strong>StyleDoubler</strong><span class="marquee-dot">●</span><strong>Solwave</strong><span class="marquee-dot">●</span><strong>Galaxy Racer</strong><span class="marquee-dot">●</span><strong>Streamline Media</strong><span class="marquee-dot">●</span><strong>KPMG</strong><span class="marquee-dot">●</span><strong>MDEC</strong></div>
   </div>
-</section>
+</div>
 
 <!-- SERVICES -->
-<section class="services-section" id="services">
-  <div class="section-label">What I Offer</div>
-  <h2 class="section-title">Four ways I<br>build your financial edge.</h2>
+<section class="section services-section" id="services">
+  <div class="section-kicker">What I Offer</div>
+  <h2 class="section-title">Seven ways I remove<br>friction from your <span class="accent">growth</span>.</h2>
+  <p class="section-sub">From financial leadership to the operational groundwork of entering Malaysia — one advisor, one relationship, full coverage.</p>
 
   <div class="services-grid">
 
-    <div class="service-card fade-up">
-      <div class="service-num">01</div>
-      <span class="service-icon">📊</span>
+    <div class="service-card reveal">
+      <div class="service-top">
+        <span class="service-num">01</span>
+        <span class="service-flag">Most Popular</span>
+      </div>
       <h3 class="service-title">Fractional CFO</h3>
-      <p class="service-desc">
-        C-suite financial leadership without the full-time cost. I embed in your team as your strategic CFO — owning forecasting, investor relations, and capital structure while you focus on growth.
-      </p>
+      <p class="service-desc">C-suite financial leadership without the full-time cost. I embed in your team — owning forecasting, investor relations, and capital structure.</p>
       <ul class="service-bullets">
         <li>Financial strategy & board reporting</li>
+        <li>Fundraising & investor relations</li>
         <li>Cash flow & working capital management</li>
-        <li>Fundraising & investor relations ($29M+ raised)</li>
         <li>IFRS, GAAP & multi-jurisdiction compliance</li>
-        <li>Finance function build-out & team leadership</li>
-        <li>M&A due diligence & deal structuring</li>
       </ul>
     </div>
 
-    <div class="service-card fade-up">
-      <div class="service-num">02</div>
-      <span class="service-icon">🌏</span>
+    <div class="service-card reveal">
+      <div class="service-top"><span class="service-num">02</span></div>
       <h3 class="service-title">Company Incorporation</h3>
-      <p class="service-desc">
-        Entering Southeast Asia means choosing the right structure from day one. I design and execute holding and operating structures across multiple SEA jurisdictions that are investor-ready and tax-efficient.
-      </p>
+      <p class="service-desc">Entering Southeast Asia means choosing the right structure from day one. I design investor-ready, tax-efficient entity structures.</p>
       <ul class="service-bullets">
         <li>Entity structuring across MY, SG, ID, TH, PH, VN</li>
         <li>Holding company & IP ownership design</li>
-        <li>Transfer pricing framework setup</li>
         <li>Banking & treasury relationship setup</li>
-        <li>Regulatory & statutory compliance</li>
-        <li>Cross-border FX & intercompany optimization</li>
+        <li>Transfer pricing framework setup</li>
       </ul>
     </div>
 
-    <div class="service-card fade-up">
-      <div class="service-num">03</div>
-      <span class="service-icon">🧾</span>
+    <div class="service-card reveal">
+      <div class="service-top"><span class="service-num">03</span></div>
       <h3 class="service-title">Bookkeeping & Finance Ops</h3>
-      <p class="service-desc">
-        Clean books are the foundation of every credible business. I set up and manage your accounting infrastructure — so your numbers are accurate, audit-ready, and actually useful for decisions.
-      </p>
+      <p class="service-desc">Clean books are the foundation of every credible business. I set up and manage accounting infrastructure that's audit-ready.</p>
       <ul class="service-bullets">
         <li>Monthly bookkeeping & close process</li>
         <li>Chart of accounts & ERP setup</li>
-        <li>Accounts payable & receivable management</li>
         <li>Multi-entity consolidation</li>
         <li>Payroll management (MY, SG, US)</li>
-        <li>Tax filing & compliance (local & cross-border)</li>
       </ul>
     </div>
 
-    <div class="service-card fade-up">
-      <div class="service-num">04</div>
-      <span class="service-icon">🤝</span>
+    <div class="service-card reveal">
+      <div class="service-top"><span class="service-num">04</span></div>
       <h3 class="service-title">Finance Recruitment</h3>
-      <p class="service-desc">
-        The right finance hire changes everything. I leverage 16 years of building finance teams across 4 continents to identify, assess, and place CFOs, controllers, and analysts who actually fit your growth stage.
-      </p>
+      <p class="service-desc">The right finance hire changes everything. I identify, assess, and place CFOs, controllers, and analysts who fit your growth stage.</p>
       <ul class="service-bullets">
         <li>CFO, VP Finance & Controller searches</li>
         <li>Finance team design for scale-ups</li>
-        <li>Candidate assessment & competency mapping</li>
         <li>SEA-specific talent market knowledge</li>
-        <li>Onboarding & role definition support</li>
         <li>Interim coverage while you search</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-top">
+        <span class="service-num">05</span>
+        <span class="service-flag">Malaysia Specific</span>
+      </div>
+      <h3 class="service-title">MDEC / Digital Registrations</h3>
+      <p class="service-desc">As an MDEC expert panel member, I navigate Malaysia Digital Economy Corporation applications and digital status registrations directly.</p>
+      <ul class="service-bullets">
+        <li>Malaysia Digital (MD) status applications</li>
+        <li>Eligibility assessment & document prep</li>
+        <li>Application submission & liaison with MDEC</li>
+        <li>Post-approval compliance guidance</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-top">
+        <span class="service-num">06</span>
+        <span class="service-flag">Malaysia Specific</span>
+      </div>
+      <h3 class="service-title">Residence Pass — Talent (RP-T)</h3>
+      <p class="service-desc">As an RP-T holder myself, I guide qualifying professionals through Malaysia's Residence Pass-Talent application — eligibility, documentation, and submission.</p>
+      <ul class="service-bullets">
+        <li>Eligibility screening against RP-T criteria</li>
+        <li>Document preparation & application strategy</li>
+        <li>End-to-end application management</li>
+        <li>First-hand experience as an approved holder</li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-top">
+        <span class="service-num">07</span>
+        <span class="service-flag">Malaysia Specific</span>
+      </div>
+      <h3 class="service-title">Office Space Search</h3>
+      <p class="service-desc">Setting up locally needs the right physical footprint too. I help you find, evaluate, and negotiate office space across Kuala Lumpur and Malaysia.</p>
+      <ul class="service-bullets">
+        <li>Requirements scoping & shortlist sourcing</li>
+        <li>Co-working, serviced, and conventional leases</li>
+        <li>Lease negotiation support</li>
+        <li>Local market & pricing knowledge</li>
       </ul>
     </div>
 
@@ -827,161 +795,116 @@
 
 <!-- ABOUT -->
 <section class="section about-section" id="about">
+  <div class="section-kicker">About</div>
+  <h2 class="section-title">Built in Big 4.<br>Tested in the <span class="accent">arena</span>.</h2>
+
   <div class="about-grid">
     <div class="about-text">
-      <div class="section-label">About</div>
-      <h2 class="section-title">Built in Big 4.<br>Tested in the arena.</h2>
       <p>I started at <strong>KPMG</strong>, auditing 13 international nonprofits and listed companies. That foundation — rigorous, detail-obsessed, no shortcuts — never left me. What came after was building and leading finance functions at companies actually in the game: Rocket Internet's Southeast Asian expansion, global gaming studios connected to <strong>Street Fighter, Final Fantasy, and Cyberpunk</strong>, DTC brands shipping to consumers in 40+ countries.</p>
-      <p>As CFO at <strong>Galaxy Racer</strong>, I helped orchestrate deals with Netflix, McDonald's, Nike, and Tencent. As interim Group CFO at <strong>StyleDoubler</strong>, I run finance across 7 entities in 6 countries. As a fractional CFO for DTC brands like <strong>Poo~Pourri and GKHair</strong>, I built the systems that let founder-led businesses operate like institutions.</p>
-      <p>I'm based in Kuala Lumpur, which puts me at the centre of everything happening in Southeast Asia — and I've raised over <strong>$29M in equity and debt</strong> for the companies I've served. I bring that full stack to every engagement.</p>
+      <p>As CFO at <strong>Galaxy Racer</strong>, I helped orchestrate deals with Netflix, McDonald's, Nike, and Tencent. As Interim Group CFO at <strong>StyleDoubler</strong>, I run finance across 7 entities in 6 countries. As a fractional CFO for DTC brands like <strong>Poo~Pourri and GKHair</strong>, I built the systems that let founder-led businesses operate like institutions.</p>
+      <p>I'm based in Kuala Lumpur as an <strong>RP-T holder</strong>, which puts me at the centre of everything happening in Southeast Asia — and I've personally raised over <strong>$29M in equity and debt</strong> for the companies I've served.</p>
     </div>
-    <div class="credentials">
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🎓</div>
-        <div class="cred-body">
-          <div class="cred-title">Chartered Accountant (CAF)</div>
-          <div class="cred-sub">Institute of Chartered Accountants of Pakistan</div>
-        </div>
+    <div class="cred-grid">
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">Chartered Accountant</div>
+        <div class="cred-sub">Institute of Chartered Accountants of Pakistan</div>
       </div>
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🏦</div>
-        <div class="cred-body">
-          <div class="cred-title">Associate CPA (UK)</div>
-          <div class="cred-sub">Certified Public Accountants Association · Cert No. 273109116A</div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">Associate CPA (UK)</div>
+        <div class="cred-sub">Cert No. 273109116A</div>
       </div>
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🇦🇺</div>
-        <div class="cred-body">
-          <div class="cred-title">Member IPA</div>
-          <div class="cred-sub">Institute of Public Accountants Australia · Cert No. 323940</div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">Member, IPA Australia</div>
+        <div class="cred-sub">Cert No. 323940</div>
       </div>
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🏆</div>
-        <div class="cred-body">
-          <div class="cred-title">Controller of the Year (2022)</div>
-          <div class="cred-sub">Coxociety & Digital CFO · Across 6 countries</div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">Controller of the Year</div>
+        <div class="cred-sub">Coxociety & Digital CFO, 2022</div>
       </div>
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🎤</div>
-        <div class="cred-body">
-          <div class="cred-title">CFO Malaysia Symposium · Speaker</div>
-          <div class="cred-sub">Topic: Convergence of CFO & CIO Roles · 2022</div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">MDEC Expert Panelist</div>
+        <div class="cred-sub">Talent Expert Network Committee</div>
       </div>
-      <div class="credential-item fade-up">
-        <div class="cred-icon">🇲🇾</div>
-        <div class="cred-body">
-          <div class="cred-title">MDEC Expert Panel Member (TEN)</div>
-          <div class="cred-sub">Malaysia Digital Economy Corporation · Industry Standards Judge</div>
-        </div>
+      <div class="cred-card reveal">
+        <span class="cred-mark">"</span>
+        <div class="cred-title">CFO Symposium Speaker</div>
+        <div class="cred-sub">CFO Malaysia, 2022</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GEOGRAPHY -->
-<section class="section geo-section" id="markets" style="background: var(--white); padding-top: 5rem; padding-bottom: 5rem;">
-  <div class="geo-grid">
-    <div>
-      <div class="section-label">Markets</div>
-      <h2 class="section-title">Southeast Asia is<br>my home turf.</h2>
-      <p class="geo-intro">
-        Most advisors know Southeast Asia from a distance. I live and operate here — navigating tax regimes, banking relationships, regulatory bodies, and talent markets across the region in real time. If your growth thesis runs through SEA, you need someone already inside it.
-      </p>
-      <br>
-      <p class="geo-intro">
-        I also bring deep North American (US & Canada) and European (Finland, UK) experience, which means I can bridge the operational and compliance gap when you're expanding from the West into the East.
-      </p>
-    </div>
-    <div class="markets-list">
-      <div class="market-row fade-up">
-        <span class="market-flag">🇲🇾</span>
-        <span class="market-name">Malaysia</span>
-        <span class="market-type">HQ Base · Deep Expertise</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇸🇬</span>
-        <span class="market-name">Singapore</span>
-        <span class="market-type">Holding Structures · PE Hub</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇮🇩</span>
-        <span class="market-name">Indonesia</span>
-        <span class="market-type">Entity Operations · Compliance</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇹🇭</span>
-        <span class="market-name">Thailand</span>
-        <span class="market-type">Entity Operations</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇻🇳</span>
-        <span class="market-name">Vietnam</span>
-        <span class="market-type">Market Expansion</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇵🇭</span>
-        <span class="market-name">Philippines</span>
-        <span class="market-type">Entity Operations</span>
-      </div>
-      <div class="market-row fade-up">
-        <span class="market-flag">🇺🇸🇨🇦</span>
-        <span class="market-name">North America</span>
-        <span class="market-type">SR&ED · US Tax · SaaS</span>
-      </div>
-    </div>
+<!-- MARKETS -->
+<section class="section markets-section" id="markets">
+  <div class="section-kicker">Markets</div>
+  <h2 class="section-title">Southeast Asia is<br>my <span class="accent">home turf</span>.</h2>
+  <p class="section-sub">Most advisors know this region from a distance. I live and operate here — across tax regimes, banking relationships, and regulatory bodies, in real time.</p>
+
+  <div class="markets-grid">
+    <div class="market-tile reveal"><span class="market-flag">🇲🇾</span><div class="market-name">Malaysia</div><div class="market-type">HQ Base</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇸🇬</span><div class="market-name">Singapore</div><div class="market-type">Holding Structures</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇮🇩</span><div class="market-name">Indonesia</div><div class="market-type">Operations</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇹🇭</span><div class="market-name">Thailand</div><div class="market-type">Operations</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇻🇳</span><div class="market-name">Vietnam</div><div class="market-type">Market Entry</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇵🇭</span><div class="market-name">Philippines</div><div class="market-type">Operations</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇺🇸</span><div class="market-name">United States</div><div class="market-type">SaaS & Tax</div></div>
+    <div class="market-tile reveal"><span class="market-flag">🇫🇮</span><div class="market-name">Finland</div><div class="market-type">EU Bridge</div></div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="process-section" id="process">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title">From first call<br>to full integration.</h2>
-  <div class="process-steps">
-    <div class="process-step fade-up">
-      <div class="step-num">01</div>
-      <div class="step-title">Discovery</div>
-      <div class="step-desc">We spend 60 minutes mapping your current state, gaps, and goals. No commitment, full candour.</div>
+<section class="section process-section" id="process">
+  <div class="section-kicker">How It Works</div>
+  <h2 class="section-title">From first call to<br>full <span class="accent">integration</span>.</h2>
+
+  <div class="process-rail">
+    <div class="process-row">
+      <div class="process-step-num">01</div>
+      <div class="process-step-title">Discovery</div>
+      <div class="process-step-desc">A 60-minute conversation mapping your current state, gaps, and goals. No commitment, full candour.</div>
     </div>
-    <div class="process-step fade-up">
-      <div class="step-num">02</div>
-      <div class="step-title">Diagnostic</div>
-      <div class="step-desc">I assess your financial infrastructure, team, and compliance posture. You get a written findings report.</div>
+    <div class="process-row">
+      <div class="process-step-num">02</div>
+      <div class="process-step-title">Diagnostic</div>
+      <div class="process-step-desc">I assess your financial infrastructure, team, and compliance posture, then deliver a written findings report.</div>
     </div>
-    <div class="process-step fade-up">
-      <div class="step-num">03</div>
-      <div class="step-title">Engagement Design</div>
-      <div class="step-desc">We agree on scope, cadence, and outcomes. Flexible retainer or project-based — built around your stage.</div>
+    <div class="process-row">
+      <div class="process-step-num">03</div>
+      <div class="process-step-title">Engagement Design</div>
+      <div class="process-step-desc">We agree on scope, cadence, and outcomes — flexible retainer or project-based, built around your stage.</div>
     </div>
-    <div class="process-step fade-up">
-      <div class="step-num">04</div>
-      <div class="step-title">Embedded Execution</div>
-      <div class="step-desc">I work as part of your leadership team — in your tools, in your meetings, accountable to your board.</div>
+    <div class="process-row">
+      <div class="process-step-num">04</div>
+      <div class="process-step-title">Embedded Execution</div>
+      <div class="process-step-desc">I work as part of your leadership team — in your tools, in your meetings, accountable to your board.</div>
     </div>
   </div>
 </section>
 
 <!-- PROOF -->
 <section class="section proof-section">
-  <div class="section-label">Track Record</div>
-  <h2 class="section-title">Numbers that<br>speak for themselves.</h2>
+  <div class="section-kicker">Track Record</div>
+  <h2 class="section-title">Numbers that<br>speak for <span class="accent">themselves</span>.</h2>
+
   <div class="proof-grid">
-    <div class="proof-card fade-up">
-      <div class="proof-quote">"</div>
+    <div class="proof-card reveal">
+      <span class="proof-mark">"</span>
       <p class="proof-text">Led financial strategy across 7 legal entities in 6 countries simultaneously, building centralized treasury and AP functions while reporting directly to a Yahoo Japan Group investor.</p>
       <div class="proof-author">StyleDoubler · Interim Group CFO · 2025–Present</div>
     </div>
-    <div class="proof-card fade-up">
-      <div class="proof-quote">"</div>
-      <p class="proof-text">At Galaxy Racer, orchestrated collaborations with Netflix, McDonald's, Nike, Tencent, Walt Disney and LaLiga as the region's CFO — while driving the SEA & APAC expansion strategy.</p>
+    <div class="proof-card reveal">
+      <span class="proof-mark">"</span>
+      <p class="proof-text">At Galaxy Racer, orchestrated collaborations with Netflix, McDonald's, Nike, Tencent, Disney and LaLiga as the region's CFO — while driving the SEA & APAC expansion strategy.</p>
       <div class="proof-author">Galaxy Racer · CFO Southeast Asia · 2022–2023</div>
     </div>
-    <div class="proof-card fade-up">
-      <div class="proof-quote">"</div>
-      <p class="proof-text">Built and scaled the finance function at Streamline Media Group from Financial Controller to Head of Finance — reducing operational costs by 34% while the company went global in gaming.</p>
+    <div class="proof-card reveal">
+      <span class="proof-mark">"</span>
+      <p class="proof-text">Built and scaled the finance function at Streamline Media Group from Financial Controller to Head of Finance — reducing operational costs by 34% while the company went global.</p>
       <div class="proof-author">Streamline Media Group · Head of Finance · 2016–2022</div>
     </div>
   </div>
@@ -989,21 +912,21 @@
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
-  <div class="section-label" style="color: rgba(13,13,13,0.5); justify-content: center;">Let's Talk</div>
-  <h2 class="section-title">Ready to build your<br>SEA financial foundation?</h2>
-  <p class="cta-sub">Whether you're pre-seed or Series B, expanding into your first SEA market or cleaning up before a raise — let's find out if we're the right fit.</p>
-  <div class="cta-actions">
-    <a href="mailto:ca.ibneali88@yahoo.com" class="btn-dark">Email Me Directly</a>
-    <a href="https://www.linkedin.com/in/ibneshah" target="_blank" class="btn-outline-dark">Connect on LinkedIn</a>
+  <div class="cta-content">
+    <div class="section-kicker">Let's Talk</div>
+    <h2 class="cta-title">Ready to build your<br><span class="accent">Southeast Asia</span> foundation?</h2>
+    <p class="cta-sub">Whether you're pre-seed or Series B, expanding into your first SEA market or setting up your first Malaysian entity — let's find out if we're the right fit.</p>
+    <div class="cta-actions">
+      <a href="mailto:ca.ibneali88@yahoo.com" class="btn-white">Email Me Directly</a>
+      <a href="https://www.linkedin.com/in/ibneshah" target="_blank" class="btn-outline-white">Connect on LinkedIn</a>
+    </div>
+    <p class="cta-contact">+60 17 876 9786 · ca.ibneali88@yahoo.com · Kuala Lumpur, Malaysia</p>
   </div>
-  <p style="margin-top: 1.5rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(13,13,13,0.4);">
-    +60 17 876 9786 · ca.ibneali88@yahoo.com · Kuala Lumpur, Malaysia
-  </p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-name">Syed Ibn-e-Ali</div>
+  <div class="footer-name">Syed <span>Ibn-e-Ali</span></div>
   <ul class="footer-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -1015,11 +938,10 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
