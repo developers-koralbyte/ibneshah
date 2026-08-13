@@ -11,6 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <style>
   :root {
     --purple:    #4A4580;
@@ -131,8 +132,33 @@
   .form-status {
     display: none; padding: 0.85rem 1.1rem; border-radius: 8px; font-size: 0.85rem; margin-bottom: 1.2rem;
   }
-  .form-status.success { display: block; background: rgba(42,96,73,0.08); color: var(--green); border: 1px solid rgba(42,96,73,0.2); }
   .form-status.error { display: block; background: rgba(179,69,46,0.08); color: var(--red); border: 1px solid rgba(179,69,46,0.2); }
+
+  .recaptcha-row { margin-bottom: 1.3rem; }
+
+  /* THANK YOU STATE */
+  .thank-you {
+    display: none; text-align: center; padding: 2.5rem 1rem;
+  }
+  .thank-you.visible { display: block; }
+  .thank-you-icon {
+    width: 60px; height: 60px; border-radius: 50%; background: rgba(42,96,73,0.1);
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 1.4rem;
+    font-size: 1.6rem; color: var(--green);
+  }
+  .thank-you-title {
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.7rem;
+  }
+  .thank-you-text {
+    font-size: 0.9rem; color: var(--mid); line-height: 1.7; max-width: 340px; margin: 0 auto 1.6rem;
+  }
+  .thank-you-reset {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: transparent; color: var(--purple); border: 1.5px solid var(--purple-l);
+    padding: 0.75rem 1.6rem; font-size: 0.82rem; font-weight: 600; font-family: var(--sans);
+    border-radius: 100px; cursor: pointer; transition: background 0.2s;
+  }
+  .thank-you-reset:hover { background: rgba(74,69,128,0.06); }
 
   /* FOOTER */
   footer {
@@ -229,9 +255,21 @@
         <textarea id="message" name="message" required placeholder="Tell me a bit about your business and what you're looking for..."></textarea>
       </div>
 
+      <!-- Google reCAPTCHA: replace YOUR_RECAPTCHA_SITE_KEY with your real site key from google.com/recaptcha/admin -->
+      <div class="recaptcha-row">
+        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      </div>
+
       <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
       <p class="form-note">Your message goes straight to my inbox. No spam, no newsletters.</p>
     </form>
+
+    <div class="thank-you" id="thankYou">
+      <div class="thank-you-icon">✓</div>
+      <div class="thank-you-title">Message sent</div>
+      <p class="thank-you-text">Thanks for reaching out. I've received your message and will get back to you personally within one business day.</p>
+      <button class="thank-you-reset" id="sendAnother">Send another message</button>
+    </div>
   </div>
 </section>
 
@@ -254,15 +292,26 @@
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const btn = document.getElementById('submitBtn');
+  const thankYou = document.getElementById('thankYou');
+  const sendAnother = document.getElementById('sendAnother');
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+
+    const captchaResponse = window.grecaptcha ? window.grecaptcha.getResponse() : '';
+    if (!captchaResponse) {
+      status.textContent = 'Please confirm the "I\'m not a robot" checkbox before sending.';
+      status.className = 'form-status error';
+      return;
+    }
+
     btn.disabled = true;
     btn.textContent = 'Sending...';
     status.className = 'form-status';
     status.style.display = 'none';
 
     const formData = new FormData(form);
+    formData.append('g-recaptcha-response', captchaResponse);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
@@ -274,19 +323,28 @@
       });
       const result = await res.json();
       if (result.success) {
-        status.textContent = "Thanks, your message has been sent. I'll get back to you within one business day.";
-        status.className = 'form-status success';
-        form.reset();
+        form.style.display = 'none';
+        thankYou.classList.add('visible');
       } else {
         status.textContent = 'Something went wrong. Please try again or email me directly.';
         status.className = 'form-status error';
+        if (window.grecaptcha) window.grecaptcha.reset();
       }
     } catch (err) {
       status.textContent = 'Something went wrong. Please try again or email me directly.';
       status.className = 'form-status error';
+      if (window.grecaptcha) window.grecaptcha.reset();
     }
     btn.disabled = false;
     btn.textContent = 'Send Message';
+  });
+
+  sendAnother.addEventListener('click', function () {
+    form.reset();
+    if (window.grecaptcha) window.grecaptcha.reset();
+    thankYou.classList.remove('visible');
+    form.style.display = 'block';
+    status.style.display = 'none';
   });
 </script>
 </body>
