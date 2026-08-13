@@ -311,7 +311,6 @@
     status.style.display = 'none';
 
     const formData = new FormData(form);
-    formData.append('g-recaptcha-response', captchaResponse);
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
